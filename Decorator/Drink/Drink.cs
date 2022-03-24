@@ -1,7 +1,9 @@
 namespace Decorator
 {
-    public abstract class Drink
+    public interface Drink
     {
-        public abstract string Order();
+        public string Order(ToppingType[] excludeToppingNames = null);
+        public string OrderRemoveLastTopping();
+
     }
 }

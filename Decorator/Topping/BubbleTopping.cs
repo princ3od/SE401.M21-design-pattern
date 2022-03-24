@@ -1,12 +1,24 @@
+using System.Linq;
 namespace Decorator
 {
     public class BubbleTopping : Topping
     {
-        public BubbleTopping(Drink drink) : base(drink) { }
-
-        public override string Order()
+        public BubbleTopping(Drink drink) : base(drink)
         {
-            return _drink.Order() + " + bubble";
+            toppingName = ToppingType.Bubble;
         }
+
+        public override string Order(ToppingType[] excludeToppingNames = null)
+        {
+            if (excludeToppingNames != null && excludeToppingNames.Contains(toppingName))
+            {
+                return _drink.Order(excludeToppingNames);
+            }
+            else
+            {
+                return _drink.Order(excludeToppingNames) + " + bubble";
+            }
+        }
+
     }
 }
