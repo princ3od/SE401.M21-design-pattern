@@ -8,7 +8,7 @@ namespace Bridge
 {
     abstract class Shape
     {
-        public Coloring color { get; set; }
+        public Coloring color;
         public string GetColor()
         {
             return color.GetColor();
